@@ -1,7 +1,7 @@
 <div class="recipe-box-app">
   <div class="app-title">Recipe Box</div>
   <md-toolbar color="primary">
-    <a routerLink="/" class="toolbar-item">Home</a>
+    <a routerLink="/home" class="toolbar-item">Home</a>
     <a routerLink="/categories" class="toolbar-item">Categories</a>
     <a routerLink="/recipes" class="toolbar-item">Recipes</a>
     <span class="spacer"></span>
@@ -14,5 +14,5 @@
       </button>
     </md-menu>
   </md-toolbar>
-
+  <router-outlet></router-outlet>
 </div>
