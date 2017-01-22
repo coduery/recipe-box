@@ -1,0 +1,23 @@
+.recipe-box-app {
+  width: 1000px;
+  margin: auto;
+}
+.app-title {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+.toolbar-item {
+  text-align: center;
+  width: 8em;
+}
+.spacer {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}

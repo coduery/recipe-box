@@ -1,1 +1,18 @@
-<h1>Recipe Box successfully started!</h1>
+<div class="recipe-box-app">
+  <div class="app-title">Recipe Box</div>
+  <md-toolbar color="primary">
+    <a routerLink="/" class="toolbar-item">Home</a>
+    <a routerLink="/categories" class="toolbar-item">Categories</a>
+    <a routerLink="/recipes" class="toolbar-item">Recipes</a>
+    <span class="spacer"></span>
+    <button md-icon-button [mdMenuTriggerFor]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>
+    <md-menu #menu="mdMenu">
+      <button md-menu-item>
+        <span>Logout</span>
+      </button>
+    </md-menu>
+  </md-toolbar>
+
+</div>
