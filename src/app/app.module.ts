@@ -16,11 +16,11 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home.component';
-import { CategoriesComponent } from './categories.component';
-import { RecipesComponent } from './recipes.component';
+import { HomeComponent } from './home/home.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { RecipesComponent } from './recipes/recipes.component';
 
-import { CategoryService } from './category.service';
+import { CategoryService } from './categories/category.service';
 
 @NgModule({
   declarations: [
