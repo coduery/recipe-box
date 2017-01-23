@@ -1,0 +1,30 @@
+<div>
+  <br>
+  <h3>Home</h3>
+  <hr>
+  <div fxLayout="row">
+    <div fxFlex="30">
+      <p class="section_description">Categories</p>
+      <ul class="categories">
+        <li *ngFor="let category of categories" 
+          [class.selected]="category === selectedCategory" (click)="onSelect(category)">
+          <div *ngIf="selectedCategory === undefined && category.name == 'All'">
+            <span class="all-default-category">{{ category.name }}</span>
+          </div>
+          <div *ngIf="selectedCategory || category.name != 'All'">
+            <span>{{ category.name }}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div fxFlex="70">
+      <div *ngIf="selectedCategory === undefined">
+        <p class="section_description">All Recipes</p>
+      </div>
+      <div *ngIf="selectedCategory">
+        <p class="section_description">{{ selectedCategory.name }} Recipes</p>
+      </div>
+      <!-- placeholder for recipe list -->
+    </div>
+  </div>
+</div>

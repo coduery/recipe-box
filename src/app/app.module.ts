@@ -1,17 +1,26 @@
+import './rxjs-extensions';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 import 'hammerjs';
 
 import { AppRoutingModule } from './app-routing.module';
 
+// Use temporary in-memory database
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService }  from './in-memory-data.service';
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home.component';
 import { CategoriesComponent } from './categories.component';
 import { RecipesComponent } from './recipes.component';
+
+import { CategoryService } from './category.service';
 
 @NgModule({
   declarations: [
@@ -25,9 +34,11 @@ import { RecipesComponent } from './recipes.component';
     FormsModule,
     HttpModule,
     MaterialModule.forRoot(),
-    AppRoutingModule
+    FlexLayoutModule.forRoot(),
+    AppRoutingModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ CategoryService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

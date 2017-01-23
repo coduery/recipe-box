@@ -1,19 +1,18 @@
 .recipe-box-app {
   margin: auto;
-  width: 1000px;
-}
-.app-title {
-  display: block;
-  font-family: Roboto,"Helvetica Neue",sans-serif;
-  font-size: 2em;
-  font-weight: bold;
-  margin-top: 0.67em;
-  margin-bottom: 0.67em;
-  margin-left: 0;
-  margin-right: 0;
+  width: 1200px;
 }
 .toolbar-item {
-  color: rgba(255,255,255,.87);
+  color: rgba(255, 255, 255, .9);
+  text-align: center;
+  text-decoration: none;
+  width: 8em;
+}
+.toolbar-item:hover {
+  color: rgba(255, 0, 0, .9);
+}
+.active-link {
+  color: rgba(255, 0, 0, .9);
   text-align: center;
   text-decoration: none;
   width: 8em;
