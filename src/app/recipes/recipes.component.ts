@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'recipe-box-recipes',
-  template: '<h1>recipes page</h1>'
+  templateUrl: './recipes.component.html',
+  styleUrls: [ './recipes.component.css' ]
 })
 export class RecipesComponent{
   
