@@ -20,6 +20,7 @@ import { HomeComponent } from './home/home.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
+import { UnitsComponent } from './units/units.component';
 
 import { CategoryService } from './categories/category.service';
 import { RecipeService } from './recipes/recipe.service';
@@ -30,7 +31,8 @@ import { RecipeService } from './recipes/recipe.service';
     HomeComponent,
     CategoriesComponent,
     RecipesComponent,
-    IngredientsComponent
+    IngredientsComponent,
+    UnitsComponent
   ],
   imports: [
     BrowserModule,
