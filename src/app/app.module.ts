@@ -22,6 +22,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
 
 import { CategoryService } from './categories/category.service';
+import { RecipeService } from './recipes/recipe.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { CategoryService } from './categories/category.service';
     AppRoutingModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
-  providers: [ CategoryService ],
+  providers: [ CategoryService, RecipeService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

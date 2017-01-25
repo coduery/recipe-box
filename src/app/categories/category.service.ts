@@ -6,12 +6,13 @@ import { Category } from './category';
 
 @Injectable()
 export class CategoryService{
-  private categoriesUrl = 'api/categories';
+  private baseUrl = 'api/categories';
 
   constructor(private http: Http) { }
-
-  getCategories(): Observable<any> {
-    return this.http.get(this.categoriesUrl)
+  
+  getAllCategoriesRecipesForUser(userId: number): Observable<any> {
+    const url = `${this.baseUrl}?userId=${userId}`;
+    return this.http.get(url)
                .map(response => response.json().data as Category[]);
   }
 }

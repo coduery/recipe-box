@@ -6,25 +6,29 @@
     <div fxFlex="30">
       <p class="section_description">Categories</p>
       <ul class="categories">
-        <li *ngFor="let category of categories" 
-          [class.selected]="category === selectedCategory" (click)="onSelect(category)">
-          <div *ngIf="selectedCategory === undefined && category.name == 'All'">
-            <span class="all-default-category">{{ category.name }}</span>
+        <li *ngFor="let name of sortedCategories"
+          [class.selected]="name === selectedCategoryName" (click)="onSelect(name)">
+          <div *ngIf="selectedCategoryName === undefined && name == 'All'">
+            <span class="all-default-category">{{ name }}</span>
           </div>
-          <div *ngIf="selectedCategory || category.name != 'All'">
-            <span>{{ category.name }}</span>
+          <div *ngIf="selectedCategoryName || name != 'All'">
+            <span>{{ name }}</span>
           </div>
         </li>
       </ul>
     </div>
     <div fxFlex="70">
-      <div *ngIf="selectedCategory === undefined">
+      <div *ngIf="selectedCategoryName === undefined">
         <p class="section_description">All Recipes</p>
       </div>
-      <div *ngIf="selectedCategory">
-        <p class="section_description">{{ selectedCategory.name }} Recipes</p>
+      <div *ngIf="selectedCategoryName">
+        <p class="section_description">{{ selectedCategoryName }} Recipes</p>
       </div>
-      <!-- placeholder for recipe list -->
+      <ul class="recipes">
+        <li *ngFor="let name of sortedRecipes">
+          <span>{{ name }}</span>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
