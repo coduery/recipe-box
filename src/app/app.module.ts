@@ -25,6 +25,8 @@ import { UnitsComponent } from './units/units.component';
 import { CategoryService } from './categories/category.service';
 import { RecipeService } from './recipes/recipe.service';
 
+import { CategoryUtility } from './categories/category.utility';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +45,9 @@ import { RecipeService } from './recipes/recipe.service';
     AppRoutingModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
   ],
-  providers: [ CategoryService, RecipeService ],
+  providers: [ CategoryService, RecipeService,
+               CategoryUtility
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
