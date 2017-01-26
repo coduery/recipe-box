@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { Category } from '../categories/category';
-import { CategoryService } from '../categories/category.service';
-import { CategoryUtility } from '../categories/category.utility';
-import { Recipe } from '../recipes/recipe';
+import { Category } from '../../models/category';
+
+import { CategoryService } from '../../services/category.service';
+
+import { CategoryUtility } from '../../utilities/category.utility';
 
 @Component({
   selector: 'recipe-box-home',
