@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 
 import { Category } from '../../models/category';
 
@@ -13,6 +12,7 @@ import { CategoryUtility } from '../../utilities/category.utility';
   styleUrls: [ 'home.component.css' ]
 })
 export class HomeComponent{
+
   categories: Category[];
   selectedCategoryName: string;
   sortedCategories: string[];
@@ -27,8 +27,7 @@ export class HomeComponent{
 
   getAllCategoriesRecipesForUser(): void {
     let userId = 1;  // TODO: to be based upon logged in user
-    var allCategories = this.categoryService.getAllCategoriesRecipesForUser(userId);
-    allCategories.subscribe((categories) => {
+    this.categoryService.getAllCategoriesRecipesForUser(userId).subscribe((categories) => {
       this.categories = categories;
       var sortedAllCategoriesRecipes = this.categoryUtility.sortCategoryRecipes(categories);
       this.sortedCategories = sortedAllCategoriesRecipes['sortedCategories'];
@@ -36,7 +35,7 @@ export class HomeComponent{
     });
   }
 
-  onSelect(selectedCategoryName: string): void {
+  onSelectCategory(selectedCategoryName: string): void {
     this.selectedCategoryName = selectedCategoryName;
     this.sortedRecipes = this.categoryUtility.getCategoryRecipes(selectedCategoryName, this.categories);
   }

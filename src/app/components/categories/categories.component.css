@@ -1,0 +1,24 @@
+ul {
+  font-size: 16px;
+  line-height: 10px;
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+.recipeListScrollBox {
+  border-color: rgb(169, 169, 169);
+  border-style: solid;
+  border-width: 1px;
+  width: 260px;
+  height: 260px;
+  overflow-y: scroll;
+}
+.recipeScrollBox {
+  border-color: rgb(169, 169, 169);
+  border-style: solid;
+  border-width: 1px;
+  width: 800px;
+  height: 500px;
+  overflow-y: scroll;
+  padding-left: 10px;
+}

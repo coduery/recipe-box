@@ -7,7 +7,7 @@
       <p class="section_description">Categories</p>
       <ul class="categories">
         <li *ngFor="let name of sortedCategories"
-          [class.selected]="name === selectedCategoryName" (click)="onSelect(name)">
+          [class.selected]="name === selectedCategoryName" (click)="onSelectCategory(name)">
           <div *ngIf="selectedCategoryName === undefined && name == 'All'">
             <span class="all-default-category">{{ name }}</span>
           </div>

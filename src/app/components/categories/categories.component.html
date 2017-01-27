@@ -4,10 +4,39 @@
   <hr>
   <div fxLayout="row">
     <div fxFlex="30">
-      Add categories dropdown,<br>list of category recipes,<br>add category button,<br>and edit category button
+      <p class="section_description">Category</p>
+      <select [(ngModel)]="selectedCategory" (ngModelChange)="onSelectCategory($event)">
+        <option *ngFor="let name of sortedCategories" [selected]="name == 'All'">{{ name }}</option>
+      </select>
+      <br>
+      <div *ngIf="selectedCategoryName === undefined">
+        <p class="section_description">All Recipes</p>
+      </div>
+      <div *ngIf="selectedCategoryName">
+        <p class="section_description">{{ selectedCategoryName }} Recipes</p>
+      </div>
+      <div class="recipeListScrollBox">
+        <ul *ngFor="let name of sortedRecipes">
+          <li>{{ name }}</li>
+        </ul> 
+      </div>
+      <br><br>
+      <button md-raised-button color="primary" onclick="alert('Hello world!')">Add Category</button>
+      <br><br>
+      <button md-raised-button color="primary" onclick="alert('Hello world!')">Edit Category</button>
     </div>
     <div fxFlex="70">
+      <p class="section_description">Recipe</p>
+      <div class="recipeScrollBox">
+        <div *ngIf="selectedRecipeName === undefined">
+          <p>Select Recipe from List!</p>
+        </div>
+        <div *ngIf="selectedRecipeName">
+        
+        </div>
+      </div>
       Add view of selected recipe<br>and Edit recipe button
     </div>
   </div>
 </div>
+
