@@ -17,6 +17,7 @@ import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { CategoryAddModalComponent } from './components/categories/category-add-modal.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { IngredientsComponent } from './components/ingredients/ingredients.component';
 import { UnitsComponent } from './components/units/units.component';
@@ -30,9 +31,13 @@ import { CategoryUtility } from './utilities/category.utility';
   declarations: [
     AppComponent,
     CategoriesComponent,
+    CategoryAddModalComponent,
     RecipesComponent,
     IngredientsComponent,
     UnitsComponent
+  ],
+  entryComponents: [
+    CategoryAddModalComponent
   ],
   imports: [
     BrowserModule,

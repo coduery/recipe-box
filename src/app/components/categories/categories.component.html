@@ -24,9 +24,9 @@
         </ul> 
       </div>
       <br><br>
-      <button md-raised-button color="primary" onclick="alert('Hello world!')">Add Category</button>
+      <button md-raised-button color="accent" (click)="addCategory()">Add Category</button>
       <br><br>
-      <button md-raised-button color="primary" onclick="alert('Hello world!')">Edit Category</button>
+      <button md-raised-button color="accent" (click)="editCategory()">Edit Category</button>
     </div>
     <div fxFlex="70">
       <p class="section_description">{{ selectedRecipeName }} Recipe</p>

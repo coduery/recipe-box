@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Type, ViewContainerRef } from '@angular/core';
+import { MdDialog, MdDialogRef, MdDialogConfig } from '@angular/material';
+
+import { CategoryAddModalComponent } from './category-add-modal.component';
 
 import { Category } from '../../models/category';
 
@@ -19,8 +22,12 @@ export class CategoriesComponent{
   selectedCategoryName: string;
   selectedRecipeName: string;
 
+  dialogRef: MdDialogRef<any>;
+
   constructor(private categoryService: CategoryService,
-              private categoryUtility: CategoryUtility) {}
+              private categoryUtility: CategoryUtility,
+              private mdDialog: MdDialog,
+              private viewContainerRef: ViewContainerRef) {}
 
   ngOnInit(): void {
     this.getAllCategoriesRecipesForUser();
@@ -44,5 +51,23 @@ export class CategoriesComponent{
 
   onSelectRecipe(selectedRecipeName: string) {
     this.selectedRecipeName = selectedRecipeName;
+  }
+
+  addCategory() {
+    this.setupModal(CategoryAddModalComponent);
+  }
+
+  editCategory() {
+    console.log('editCategory called');
+  }
+
+  setupModal(modalComponent: Type<any>) {
+    let config = new MdDialogConfig();
+    config.disableClose = true;
+    config.viewContainerRef = this.viewContainerRef;
+    this.dialogRef = this.mdDialog.open(modalComponent, config);
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.dialogRef = null;
+    });
   }
 }
