@@ -30,7 +30,7 @@ export class CategoriesComponent{
     let userId = 1;  // TODO: to be based upon logged in user
     this.categoryService.getAllCategoriesRecipesForUser(userId).subscribe((categories) => {
       this.categories = categories;
-      var sortedAllCategoriesRecipes = this.categoryUtility.sortCategoryRecipes(categories);
+      let sortedAllCategoriesRecipes = this.categoryUtility.sortCategoryRecipes(categories);
       this.sortedCategories = sortedAllCategoriesRecipes['sortedCategories'];
       this.sortedRecipes = sortedAllCategoriesRecipes['sortedRecipes'];
     });

@@ -5,8 +5,8 @@ import { Category } from '../models/category';
 @Injectable()
 export class CategoryUtility {
   sortCategoryRecipes(categories: Category[]): Object {
-    var categoryNames = [];
-    var recipeNames = [];
+    let categoryNames = [];
+    let recipeNames = [];
     categories.forEach(function(category) {
       categoryNames.push(category.name);
       if (category.recipes) {
@@ -15,8 +15,8 @@ export class CategoryUtility {
         });
       }
     });
-    var sortedCategories = this.mergeSort(categoryNames);
-    var sortedRecipes = this.mergeSort(recipeNames);
+    let sortedCategories = this.mergeSort(categoryNames);
+    let sortedRecipes = this.mergeSort(recipeNames);
     return { sortedCategories, sortedRecipes };
   }
 
@@ -26,14 +26,14 @@ export class CategoryUtility {
     if (items.length < 2) {
         return items;
     }
-    var middle = Math.floor(items.length / 2),
-        left    = items.slice(0, middle),
-        right   = items.slice(middle);
+    let middle = Math.floor(items.length / 2),
+        left   = items.slice(0, middle),
+        right  = items.slice(middle);
     return this.merge(this.mergeSort(left), this.mergeSort(right));
   }
 
   merge(left, right){
-    var result  = [],
+    let result  = [],
         il      = 0,
         ir      = 0;
     while (il < left.length && ir < right.length){
@@ -47,11 +47,11 @@ export class CategoryUtility {
   }
 
     getCategoryRecipes(selectedCategoryName: string, categories: Category[]): string[] {
-    var sortedAllCategoriesRecipes;
+    let sortedAllCategoriesRecipes;
     if (selectedCategoryName == 'All') {
       sortedAllCategoriesRecipes = this.sortCategoryRecipes(categories);
     } else {
-      var selectedCategory = [];
+      let selectedCategory = [];
       categories.forEach(function(category) {
         if (category.name == selectedCategoryName) {
           selectedCategory.push(category);

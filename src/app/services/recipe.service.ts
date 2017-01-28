@@ -10,9 +10,4 @@ export class RecipeService {
 
   constructor(private http: Http) {}
 
-  getRecipesForCategory(categoryId: number): Observable<any> {
-    const url = `${this.baseUrl}?categoryId=${categoryId}`;
-    return this.http.get(url)
-               .map(recipes => recipes.json().data as Recipe[]);
-  }
 }

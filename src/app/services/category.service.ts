@@ -11,7 +11,7 @@ export class CategoryService{
   constructor(private http: Http) { }
 
   getAllCategoriesRecipesForUser(userId: number): Observable<any> {
-    const url = `${this.baseUrl}?userId=${userId}`;
+    let url = `${this.baseUrl}?userId=${userId}`;
     return this.http.get(url)
                .map(response => response.json().data as Category[]);
   }
