@@ -16,7 +16,6 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { IngredientsComponent } from './components/ingredients/ingredients.component';
@@ -30,7 +29,6 @@ import { CategoryUtility } from './utilities/category.utility';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     CategoriesComponent,
     RecipesComponent,
     IngredientsComponent,
