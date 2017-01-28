@@ -16,8 +16,11 @@
         <p class="section_description">{{ selectedCategoryName }} Recipes</p>
       </div>
       <div class="recipeListScrollBox">
-        <ul *ngFor="let name of sortedRecipes">
-          <li>{{ name }}</li>
+        <ul>
+          <li *ngFor="let name of sortedRecipes"
+            [class.selected]="name === selectedRecipeName" (click)="onSelectRecipe(name)">
+            <span>{{ name }}</span>
+          </li>
         </ul> 
       </div>
       <br><br>
@@ -26,7 +29,7 @@
       <button md-raised-button color="primary" onclick="alert('Hello world!')">Edit Category</button>
     </div>
     <div fxFlex="70">
-      <p class="section_description">Recipe</p>
+      <p class="section_description">{{ selectedRecipeName }} Recipe</p>
       <div class="recipeScrollBox">
         <div *ngIf="selectedRecipeName === undefined">
           <p>Select Recipe from List!</p>
@@ -39,4 +42,3 @@
     </div>
   </div>
 </div>
-

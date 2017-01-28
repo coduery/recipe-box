@@ -14,9 +14,10 @@ import { CategoryUtility } from '../../utilities/category.utility';
 export class CategoriesComponent{
 
   categories: Category[];
-  selectedCategoryName: string;
   sortedCategories: string[];
   sortedRecipes: string[];
+  selectedCategoryName: string;
+  selectedRecipeName: string;
 
   constructor(private categoryService: CategoryService,
               private categoryUtility: CategoryUtility) {}
@@ -38,5 +39,9 @@ export class CategoriesComponent{
   onSelectCategory(selectedCategoryName: string) {
     this.selectedCategoryName = selectedCategoryName;
     this.sortedRecipes = this.categoryUtility.getCategoryRecipes(selectedCategoryName, this.categories);
+  }
+
+  onSelectRecipe(selectedRecipeName: string) {
+    this.selectedRecipeName = selectedRecipeName;
   }
 }
