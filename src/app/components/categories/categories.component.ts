@@ -38,6 +38,7 @@ export class CategoriesComponent{
 
   onSelectCategory(selectedCategoryName: string) {
     this.selectedCategoryName = selectedCategoryName;
+    this.selectedRecipeName = undefined;
     this.sortedRecipes = this.categoryUtility.getCategoryRecipes(selectedCategoryName, this.categories);
   }
 
