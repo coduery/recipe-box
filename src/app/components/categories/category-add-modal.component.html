@@ -3,10 +3,10 @@
   <hr>
   <div>
     <br>
-    Category Name: <input type="text">
+    Category Name: <input #newCategory (keyup.enter)="saveAddedCategory(newCategory.value)">
     <br><br>
     <div class="modalButtons">
-      <button md-raised-button class="modalButton" color="primary" (click)="saveAddedCategory()">Save</button>
+      <button md-raised-button class="modalButton" color="primary" (click)="saveAddedCategory(newCategory.value)">Save</button>
       &nbsp;&nbsp;
       <button md-raised-button class="modalButton" color="accent" (click)="dialogRef.close()">Cancel</button>
     </div>

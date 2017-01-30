@@ -68,6 +68,7 @@ export class CategoriesComponent{
     this.dialogRef = this.mdDialog.open(modalComponent, config);
     this.dialogRef.afterClosed().subscribe(result => {
       this.dialogRef = null;
+      this.getAllCategoriesRecipesForUser();
     });
   }
 }
