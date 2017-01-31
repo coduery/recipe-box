@@ -63,7 +63,7 @@ export class CategoriesComponent{
   }
 
   editCategory(): void {
-    console.log('editCategory called');
+    alert('TODO: create editCategory functionality');
   }
 
   setupModal(modalComponent: Type<any>): void {
