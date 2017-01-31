@@ -21,7 +21,6 @@ export class CategoriesComponent{
   sortedRecipes: string[];
   selectedCategoryName: string;
   selectedRecipeName: string;
-
   dialogRef: MdDialogRef<any>;
 
   constructor(private categoryService: CategoryService,
@@ -30,45 +29,56 @@ export class CategoriesComponent{
               private viewContainerRef: ViewContainerRef) {}
 
   ngOnInit(): void {
-    this.getAllCategoriesRecipesForUser();
+    this.selectedCategoryName = 'All';
+    this.getCategoriesRecipes();
   }
 
-  getAllCategoriesRecipesForUser(): void {
+  getCategoriesRecipes(): void {
     let userId = 1;  // TODO: to be based upon logged in user
     this.categoryService.getAllCategoriesRecipesForUser(userId).subscribe((categories) => {
       this.categories = categories;
       let sortedAllCategoriesRecipes = this.categoryUtility.sortCategoryRecipes(categories);
       this.sortedCategories = sortedAllCategoriesRecipes['sortedCategories'];
-      this.sortedRecipes = sortedAllCategoriesRecipes['sortedRecipes'];
+      
+      if (this.selectedCategoryName == 'All') {
+        this.sortedRecipes = sortedAllCategoriesRecipes['sortedRecipes'];
+      } else {
+        this.onSelectCategory(this.selectedCategoryName);
+      }
     });
   }
 
-  onSelectCategory(selectedCategoryName: string) {
+  onSelectCategory(selectedCategoryName: string): void {
     this.selectedCategoryName = selectedCategoryName;
     this.selectedRecipeName = undefined;
     this.sortedRecipes = this.categoryUtility.getCategoryRecipes(selectedCategoryName, this.categories);
   }
 
-  onSelectRecipe(selectedRecipeName: string) {
+  onSelectRecipe(selectedRecipeName: string): void {
     this.selectedRecipeName = selectedRecipeName;
   }
 
-  addCategory() {
+  addCategory(): void {
     this.setupModal(CategoryAddModalComponent);
   }
 
-  editCategory() {
+  editCategory(): void {
     console.log('editCategory called');
   }
 
-  setupModal(modalComponent: Type<any>) {
+  setupModal(modalComponent: Type<any>): void {
     let config = new MdDialogConfig();
     config.disableClose = true;
     config.viewContainerRef = this.viewContainerRef;
     this.dialogRef = this.mdDialog.open(modalComponent, config);
-    this.dialogRef.afterClosed().subscribe(result => {
-      this.dialogRef = null;
-      this.getAllCategoriesRecipesForUser();
-    });
+    this.dialogRef.componentInstance.selectedCategoryName = this.selectedCategoryName;
+    this.dialogRef.afterClosed().subscribe(
+      () => {
+        this.selectedCategoryName = this.dialogRef.componentInstance.selectedCategoryName;
+        this.dialogRef = null;
+        this.getCategoriesRecipes();
+      },
+      error => { console.log('categories.component::setupModal error occurred'); }
+    );
   }
 }

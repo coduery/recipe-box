@@ -17,7 +17,7 @@ input {
   padding: 4px;
   width: 260px;
 }
-li:hover {
+li.selectRecipe:hover {
   color: rgba(255, 0, 0, .9);
 }
 ul {

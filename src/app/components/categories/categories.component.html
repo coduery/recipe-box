@@ -5,8 +5,8 @@
   <div fxLayout="row">
     <div fxFlex="30">
       <p class="section_description">Category</p>
-      <select [(ngModel)]="selectedCategory" (ngModelChange)="onSelectCategory($event)">
-        <option *ngFor="let name of sortedCategories" [selected]="name == 'All'">{{ name }}</option>
+      <select id="selectCategory" [(ngModel)]="selectedCategory" (ngModelChange)="onSelectCategory($event)">
+        <option *ngFor="let name of sortedCategories" [selected]="name == selectedCategoryName">{{ name }}</option>
       </select>
       <br>
       <div *ngIf="selectedCategoryName === undefined">
@@ -16,12 +16,21 @@
         <p class="section_description">{{ selectedCategoryName }} Recipes</p>
       </div>
       <div class="recipeListScrollBox">
-        <ul>
-          <li *ngFor="let name of sortedRecipes"
-            [class.selected]="name === selectedRecipeName" (click)="onSelectRecipe(name)">
-            <span>{{ name }}</span>
-          </li>
-        </ul> 
+        <div *ngIf="sortedRecipes?.length > 0">
+          <ul>
+            <li *ngFor="let name of sortedRecipes" class="selectRecipe"
+              [class.selected]="name === selectedRecipeName" (click)="onSelectRecipe(name)">
+              <span>{{ name }}</span>
+            </li>
+          </ul> 
+        </div>
+        <div *ngIf="sortedRecipes?.length == 0">
+          <ul>
+            <li>
+              <span>No Recipes for Category!</span>
+            </li>
+          </ul>
+        </div>
       </div>
       <br><br>
       <button md-raised-button color="accent" (click)="addCategory()">Add Category</button>
@@ -35,10 +44,9 @@
           <p>Select Recipe from List!</p>
         </div>
         <div *ngIf="selectedRecipeName">
-        
+          <!-- Add recipe details and Edit recipe button? -->
         </div>
       </div>
-      Add view of selected recipe<br>and Edit recipe button
     </div>
   </div>
 </div>
