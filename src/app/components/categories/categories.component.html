@@ -5,7 +5,7 @@
   <div fxLayout="row">
     <div fxFlex="30">
       <p class="section_description">Category</p>
-      <select id="selectCategory" [(ngModel)]="selectedCategory" (ngModelChange)="onSelectCategory($event)">
+      <select id="selectCategory" [ngModel]="selectedCategory" (ngModelChange)="onSelectCategory($event)">
         <option *ngFor="let name of sortedCategories" [selected]="name == selectedCategoryName">{{ name }}</option>
       </select>
       <br>
