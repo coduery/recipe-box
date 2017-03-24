@@ -28,6 +28,8 @@ ul {
 }
 select {
   cursor: pointer;
+  font-family: Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
   height: 30px;
   line-height: 30px;
   padding: 4px;
