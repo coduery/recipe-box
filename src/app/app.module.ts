@@ -11,10 +11,6 @@ import 'hammerjs';
 
 import { AppRoutingModule } from './app-routing.module';
 
-// Use temporary in-memory database
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
-
 import { AppComponent } from './app.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { CategoryAddModalComponent } from './components/categories/category-add-modal.component';
@@ -45,8 +41,7 @@ import { CategoryUtility } from './utilities/category.utility';
     HttpModule,
     MaterialModule.forRoot(),
     FlexLayoutModule.forRoot(),
-    AppRoutingModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    AppRoutingModule
   ],
   providers: [ CategoryService, RecipeService,
                CategoryUtility
