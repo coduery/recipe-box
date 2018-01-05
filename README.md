@@ -2,6 +2,8 @@
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.26.
 
+This project relies on the nodejs project at https://github.com/coduery/recipe-box-backend-nodejs as it backend, and in turn the nodejs project relies on a MySql database.
+
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
